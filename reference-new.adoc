@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: new features, release notes, enhancements 
+summary: Cloud Volumes ONTAP 9.11.0 incluye una nueva mejora. 
+---
+= Novedades de Cloud Volumes ONTAP 9.11.0
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 9.11.0 incluye una nueva mejora.
+
+Las últimas versiones de BlueXP también incluyen funciones y mejoras adicionales. Consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Notas de la versión de BlueXP"^] para obtener más detalles.
+
+
+
+== Ya no se admiten las instancias c4, m4 y r4 (28 de octubre de 2022)
+
+En AWS, los tipos de instancias c4, m4 y r4 EC2 ya no son compatibles con Cloud Volumes ONTAP. Si tiene un sistema existente que se ejecuta en un tipo de instancia c4, m4 o r4, debe cambiar a un tipo de instancia en la familia de instancias c5, m5 o r5.
+
+link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html["Aprenda a cambiar el tipo de instancia de EC2 para Cloud Volumes ONTAP"^].
+
+Consulte link:https://mysupport.netapp.com/info/communications/ECMLP2880231.html["Soporte de NetApp"^] para obtener más información acerca del fin de la disponibilidad y la compatibilidad con estos tipos de instancia.
+
+
+
+== Soporte para Elastic Volumes (7 de junio de 2022)
+
+La compatibilidad con la función Elastic Volumes de Amazon EBS con un agregado de Cloud Volumes ONTAP proporciona un mejor rendimiento y capacidad adicional, a la vez que permite que BlueXP aumente automáticamente la capacidad subyacente del disco según sea necesario.
+
+La compatibilidad con volúmenes Elastic está disponible a partir de la versión 3.9.19 del conector BlueXP y es compatible con versiones Cloud Volumes ONTAP y tipos de disco EBS específicos.
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html["Obtenga más información sobre el soporte para volúmenes Elastic"^]
+
+
+
+== 9.11.0 P1 (2 de mayo de 2022)
+
+La versión P1 de Cloud Volumes ONTAP 9.11.0 ya está disponible en AWS, Azure y Google Cloud. Esta versión incluye la siguiente mejora.
+
+
+
+=== Compatibilidad de ONTAP S3 en AWS
+
+Ahora puede proporcionar almacenamiento de objetos S3 desde Cloud Volumes ONTAP en AWS (Microsoft Azure ya es compatible). Cloud Volumes ONTAP admite S3 como opción para el almacenamiento de escalado horizontal, además de protocolos clásicos basados en archivos, como NFS y SMB.
+
+Tenga en cuenta lo siguiente:
+
+* El principal caso práctico para ONTAP S3 con Cloud Volumes ONTAP es un almacén de objetos de uso general.
+* En este momento, el protocolo S3 no es compatible con Cloud Volumes ONTAP en Google Cloud.
+* BlueXP no ofrece funcionalidades de gestión para la función ONTAP S3.
+
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["Aprenda a configurar y gestionar los servicios de almacenamiento de objetos S3 en ONTAP"^].
+
+
+
+== Notas de actualización
+
+Lea estas notas para obtener más información acerca de cómo actualizar a esta versión.
+
+
+
+=== Cómo actualizar
+
+Las actualizaciones de Cloud Volumes ONTAP deben completarse desde BlueXP. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
+
+http://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html["Obtenga información sobre cómo actualizar cuando BlueXP lo notifique"^].
+
+
+
+=== Ruta de actualización admitida
+
+Puede actualizar a Cloud Volumes ONTAP 9.11.0 desde la versión 9.10.1. BlueXP le solicitará que actualice los sistemas Cloud Volumes ONTAP aptos a esta versión.
+
+
+
+=== Versión necesaria del conector
+
+El conector BlueXP debe estar ejecutando la versión 3.9.18 o posterior para actualizar los sistemas existentes a la versión 9.11.0.
+
+
+TIP: Las actualizaciones automáticas del conector están habilitadas de forma predeterminada, por lo que debería estar ejecutando la última versión.
+
+
+
+=== Tiempo de inactividad
+
+* La actualización de un único sistema de nodos desconecta el sistema hasta 25 minutos, durante los cuales se interrumpe la I/O.
+* Actualizar un par de alta disponibilidad no provoca interrupciones y la I/o se realiza de forma ininterrumpida. Durante este proceso de actualización no disruptiva, cada nodo se actualiza conjuntamente para seguir proporcionando I/o a los clientes.
+
