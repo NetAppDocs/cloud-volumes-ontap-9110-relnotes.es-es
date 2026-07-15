@@ -20,6 +20,7 @@ Las últimas versiones de BlueXP también incluyen funciones y mejoras adicional
 
 
 
+[[support-for-elastic-volumes-7-june-2022]]
 == Soporte para Elastic Volumes (7 de junio de 2022)
 
 La compatibilidad con la función Elastic Volumes de Amazon EBS con un agregado de Cloud Volumes ONTAP proporciona un mejor rendimiento y capacidad adicional, a la vez que permite que BlueXP aumente automáticamente la capacidad subyacente del disco según sea necesario.
@@ -30,12 +31,14 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-aws-elastic-vol
 
 
 
+[[9-11-0-p1-2-may-2022]]
 == 9.11.0 P1 (2 de mayo de 2022)
 
 La versión P1 de Cloud Volumes ONTAP 9.11.0 ya está disponible en AWS, Azure y Google Cloud. Esta versión incluye la siguiente mejora.
 
 
 
+[[ontap-s3-support-in-aws]]
 === Compatibilidad de ONTAP S3 en AWS
 
 Ahora puede proporcionar almacenamiento de objetos S3 desde Cloud Volumes ONTAP en AWS (Microsoft Azure ya es compatible). Cloud Volumes ONTAP admite S3 como opción para el almacenamiento de escalado horizontal, además de protocolos clásicos basados en archivos, como NFS y SMB.
@@ -51,12 +54,14 @@ https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["Aprend
 
 
 
+[[upgrade-notes]]
 == Notas de actualización
 
 Lea estas notas para obtener más información acerca de cómo actualizar a esta versión.
 
 
 
+[[how-to-upgrade]]
 === Cómo actualizar
 
 Las actualizaciones de Cloud Volumes ONTAP deben completarse desde BlueXP. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
@@ -65,12 +70,14 @@ http://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-clou
 
 
 
+[[supported-upgrade-path]]
 === Ruta de actualización admitida
 
 Puede actualizar a Cloud Volumes ONTAP 9.11.0 desde la versión 9.10.1. BlueXP le solicitará que actualice los sistemas Cloud Volumes ONTAP aptos a esta versión.
 
 
 
+[[required-version-of-the-connector]]
 === Versión necesaria del conector
 
 El conector BlueXP debe estar ejecutando la versión 3.9.18 o posterior para actualizar los sistemas existentes a la versión 9.11.0.
@@ -80,6 +87,7 @@ TIP: Las actualizaciones automáticas del conector están habilitadas de forma p
 
 
 
+[[downtime]]
 === Tiempo de inactividad
 
 * La actualización de un único sistema de nodos desconecta el sistema hasta 25 minutos, durante los cuales se interrumpe la I/O.
@@ -88,6 +96,7 @@ TIP: Las actualizaciones automáticas del conector están habilitadas de forma p
 
 
 
+[[upgrades-in-aws-with-c4-m4-and-r4-ec2-instance-types]]
 === Actualizaciones en AWS con tipos de instancia C4, M4 y R4 EC2
 
 En AWS, los tipos de instancia C4, M4 y R4 EC2 ya no son compatibles con las nuevas puestas en marcha de Cloud Volumes ONTAP. Si tiene un sistema existente que se ejecuta en un tipo de instancia c4, m4 o r4, debe cambiar a un tipo de instancia en la familia de instancias c5, m5 o r5. Si no puede cambiar el tipo de instancia, debe activar la red mejorada antes de actualizar.
